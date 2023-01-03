@@ -6,19 +6,15 @@ const mongoose = require('mongoose');
 // checking that there is something as input
 const checkInputsPresent = (value) => { return (Object.keys(value).length > 0); }
 
-// function to validate regex formats >  name ,fullName, logoLink, email , mobile, id,password
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> function to validate regex formats>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+
 const validateName = (name) => { return (/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i.test(name)); }
-
-
-
 
 const validateEmail = (email) => { return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)); }
 
 const validateMobileNo = (number) => { return (/^[6-9]{1}[0-9]{9}$/.test(number)); }
 
-const isValidPassword = function (password) {
-    return (/^[a-zA-Z0-9!@#$%^&*]{8,15}$/.test(password))
-}
+const isValidPassword = function (password) { return (/^[a-zA-Z0-9!@#$%^&*]{8,15}$/.test(password))}
 
 const isValidPincode = (pincode) => {return (/^\+?([1-9]{1})\)?([0-9]{5})$/.test(pincode));}
 
@@ -37,4 +33,6 @@ const isValidinstallments =(installments) => {return (/[0-9]/.test(installments)
 const validateId = (id) => { return mongoose.Types.ObjectId.isValid(id); }
 
 
-module.exports = { checkInputsPresent,validateName, validateEmail, validateMobileNo,isValidCompare ,isValidPincode ,validateId ,isValidPassword,isValidImageType,isValidPrice,isValidNumber,isValidinstallments}
+module.exports = { checkInputsPresent,validateName, validateEmail, 
+    validateMobileNo,isValidCompare ,isValidPincode ,validateId ,isValidPassword,
+    isValidImageType,isValidPrice,isValidNumber,isValidinstallments}
